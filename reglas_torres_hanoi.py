@@ -32,7 +32,7 @@ def regla_movimiento(letras, ronda):
                 regla = regla_ronda + regla + "O"
     return regla
 
-def regla_cantidad_posición(letras, posicion, torre, ronda):
+def regla_cantidad_posicion(letras, posicion, torre, ronda):
     inicial = True
     regla = ""
     for i in range(1,len(ronda)):
@@ -53,7 +53,7 @@ def regla_cantidad_posición(letras, posicion, torre, ronda):
                     regla = regla_posicion + regla + "Y"
     return regla
 
-def regla_tamaño(letras, disco, torre):
+def regla_tamano(letras, disco, torre):
     inicial = True
     regla = ""
     for i in range(2, len(ronda)):
@@ -102,13 +102,19 @@ def regla_final(letras, disco, ronda):
 disco = ["a", "b"]
 posicion = [str(i) for i in range(1, len(disco)+1)]
 torre = ["a", "b", "c"]
-ronda = ["1", "2", "3", "4"]
+ronda = [str(i) for i in range(1,11)]
 
 letras = letrasProposicionales(disco, posicion, torre, ronda)
-regla_movimiento(letras, ronda)
-regla_cantidad_posición(letras, posicion, torre, ronda)
-regla_tamaño(letras, disco, torre)
+print(regla_movimiento(letras, ronda))
+print("")
+print(regla_cantidad_posicion(letras, posicion, torre, ronda))
+print("")
+print(regla_tamano(letras, disco, torre))
+print("")
 print(regla_final(letras, disco, ronda))
 
 print(letras)
 print(len(letras))
+
+for c in a:
+    if c + a[a.index(c) + 1]
