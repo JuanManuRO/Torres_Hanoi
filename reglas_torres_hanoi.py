@@ -66,19 +66,20 @@ def regla_tamano(letras, disco, torre):
                 regla_posicion = p
                 negaciones = ""
                 primera = True
-                aux3 = [x + "-" for x in aux2disco2 if (disco.index(p[0]) < disco.index(x[0]))]
-                for q in aux3:
-                    if primera:
-                        negaciones = q
-                        primera = False
-                else:
-                        negaciones = q + negaciones + "Y"
-                regla_posicion = negaciones + regla_posicion + ">"
-                if inicial:
-                    regla = regla_posicion
-                    inicial = False
-                else:
-                    regla = regla_posicion + regla + "Y"
+                aux3 = [x + "-" for x in aux2disco2 if (disco.index(p[0]) < disco.index(x[0])) and int(p[1]) > int(x[1])]
+                if len(aux3) > 0:
+                    for q in aux3:
+                        if primera:
+                            negaciones = q
+                            primera = False
+                        else:
+                            negaciones = q + negaciones + "Y"
+                    regla_posicion = negaciones + regla_posicion + ">"
+                    if inicial:
+                        regla = regla_posicion
+                        inicial = False
+                    else:
+                        regla = regla_posicion + regla + "Y"
     return regla
 
 def regla_final(letras, disco, ronda):
@@ -102,7 +103,7 @@ def regla_final(letras, disco, ronda):
 disco = ["a", "b"]
 posicion = [str(i) for i in range(1, len(disco)+1)]
 torre = ["a", "b", "c"]
-ronda = [str(i) for i in range(1,11)]
+ronda = [str(i) for i in range(1,5)]
 
 letras = letrasProposicionales(disco, posicion, torre, ronda)
 print(regla_movimiento(letras, ronda))
@@ -115,6 +116,3 @@ print(regla_final(letras, disco, ronda))
 
 print(letras)
 print(len(letras))
-
-for c in a:
-    if c + a[a.index(c) + 1]
